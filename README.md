@@ -1,2 +1,4 @@
-<h1 align="center"> ChallengeLiterAlura </h1>
-<p align="center"> Challenge LiterAlura do curso "Praticando Spring Boot: Challenge LiterAlura" da Alura </p>
+<h1 align="center"> LiterAlura </h1>
+<p align="center"> Projeto para curso Back-End da Alura </p>
+
+<h2></h2>
