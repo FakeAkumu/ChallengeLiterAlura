@@ -29,7 +29,7 @@ public class Principal {
     }
 
     public void exibeMenu() {
-        var opcao = -3;
+        var opcao = -1;
         while (opcao != 0) {
             var menu = """
                     -----------------------------------------------
