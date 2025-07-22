@@ -37,5 +37,7 @@ Ao iniciar, a aplicação irá apresentar no console um menu indicando os comand
   8 - Irá filtrar os 10 livros no banco de dados com maior contagem de downloads e irá listá-los em ordem decrescente no console. 
 
 Há também outros dois comandos não listados, utilizados para buscar informações no Gutendex e salvá-las no banco de dados. Eles foram comentados no código e portanto não podem ser utilizados por padrão. (Linhas 79-85 e 216-311 da classe Principal)
+
 9 - Busca no Gutendex o primeiro resultado correspondente à String fornecida e o salva no banco de dados, a String pode ser relacionada tanto ao título do livro ou nome do autor.
+
 10 - Busca no Gutendex os primeiros 5 resultados correspondente à String fornecida e os salva no banco de dados, a String pode ser relacionada tanto ao título dos livros ou nome dos autores.
