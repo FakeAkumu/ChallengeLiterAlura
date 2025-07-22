@@ -4,15 +4,15 @@
 
 # Funcionalidade
 Ao iniciar, a aplicação irá apresentar no console um menu indicando os comandos disponíveis:
-1 - Buscar livro pelo título
-2 - Buscar autor pelo nome
-3 - Buscar livros por autor
-4 - Listar livros registrados
-5 - Listar autores registrados
-6 - Listar autores vivos em um determinado ano
-7 - Listar livros em um determinado idioma
-8 - Top 10 livros mais baixados
-0 - Sair
+<p>1 - Buscar livro pelo título</p>
+<p>2 - Buscar autor pelo nome</p>
+<p>3 - Buscar livros por autor</p>
+<p>4 - Listar livros registrados</p>
+<p>5 - Listar autores registrados</p>
+<p>6 - Listar autores vivos em um determinado ano</p>
+<p>7 - Listar livros em um determinado idioma</p>
+<p>8 - Top 10 livros mais baixados</p>
+<p>0 - Sair</p>
 
 Um pouco mais de detalhes no que cada um faz, em ordem crescente:
 
