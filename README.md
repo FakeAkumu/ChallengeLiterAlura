@@ -40,4 +40,4 @@ Há também outros dois comandos não listados, utilizados para buscar informaç
 
 9 - Busca no Gutendex o primeiro resultado correspondente à String fornecida e o salva no banco de dados, a String pode ser relacionada tanto ao título do livro quanto ao nome do autor.
 
-10 - Busca no Gutendex os primeiros 5 resultados correspondente à String fornecida e os salva no banco de dados, a String pode ser relacionada tanto ao título dos livros quanto ao nome dos autores.
+10 - Busca no Gutendex os primeiros 5 resultados correspondente à String fornecida e os salva no banco de dados, a String pode ser relacionada tanto aos títulos dos livros quanto aos nomes dos autores.
