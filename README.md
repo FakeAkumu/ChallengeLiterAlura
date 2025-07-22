@@ -1,7 +1,7 @@
 <h1 align="center"> LiterAlura </h1>
 <p align="center"> Projeto para curso Back-End da Alura. </p>
 <p align="center"> Usa do Gutendex para obter informações de livros e autores, salvá-los em um banco de dados e exibir informações salvas. </p>
-<p align="center"> É necessário um software como o IntelliJ IDEA para ser devidamente acessado e utilizado </p>
+<p align="center"> É necessário um software como o IntelliJ IDEA para ser devidamente acessado e utilizado. </p>
 
 # Funcionalidade
 Ao iniciar, a aplicação irá apresentar no console um menu indicando os comandos disponíveis:
