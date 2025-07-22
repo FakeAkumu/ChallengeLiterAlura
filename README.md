@@ -43,6 +43,6 @@ Há também outros dois comandos não listados, utilizados para buscar informaç
 
 10 - Busca no Gutendex os primeiros 5 resultados correspondente à String fornecida e os salva no banco de dados, a String pode ser relacionada tanto aos títulos dos livros quanto aos nomes dos autores.
 
-# Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - ```Java 17```
 - ```IntelliJ IDEA```
