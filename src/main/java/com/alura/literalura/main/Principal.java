@@ -36,11 +36,12 @@ public class Principal {
                     Escolha o número de sua opção:
                     1 - Buscar livro pelo título
                     2 - Buscar autor pelo nome
-                    3 - Listar livros registrados
-                    4 - Listar autores registrados
-                    5 - Listar autores vivos em um determinado ano
-                    6 - Listar livros em um determinado idioma
-                    7 - Top 10 livros mais baixados
+                    3 - Buscar livros por autor
+                    4 - Listar livros registrados
+                    5 - Listar autores registrados
+                    6 - Listar autores vivos em um determinado ano
+                    7 - Listar livros em um determinado idioma
+                    8 - Top 10 livros mais baixados
                     0 - Sair
                     """;
 
@@ -58,25 +59,28 @@ public class Principal {
                         buscarAutor();
                         break;
                     case 3:
-                        listarLivros();
+                        buscarLivrosPorAutor();
                         break;
                     case 4:
-                        listarAutores();
+                        listarLivros();
                         break;
                     case 5:
-                        listarAutoresVivos();
+                        listarAutores();
                         break;
                     case 6:
-                        listarLivrosEmIdioma();
+                        listarAutoresVivos();
                         break;
                     case 7:
+                        listarLivrosEmIdioma();
+                        break;
+                    case 8:
                         topDezMaisBaixados();
                         break;
 /// Casos referentes às funções utilizadas para registrar livros e autores ao banco de dados
-//                    case 8:
+//                    case 9:
 //                        registrarLivro();
 //                        break;
-//                    case 9:
+//                    case 10:
 //                        registrarAteCinco();
 //                        break;
                     case 0:
@@ -143,6 +147,30 @@ public class Principal {
             autorBusca.forEach(Impressao::imprimirAutor);
         } else {
             System.out.println("Sem autores vivos no ano " + ano + ".");
+        }
+    }
+
+    private void buscarLivrosPorAutor() {
+        System.out.println("Digite o nome do autor para busca: ");
+
+        var nome = leitura.nextLine();
+
+        List<Autor> autorBusca = repositorioA.findByNomeContainingIgnoreCase(nome);
+
+        if (!autorBusca.isEmpty()) {
+            Set<Livro> livros = new HashSet<>();
+
+            for (Autor autor : autorBusca) {
+                livros.addAll(repositorioL.findByAutor(autor));
+            }
+
+            if (!livros.isEmpty()) {
+                livros.forEach(Impressao::imprimirLivro);
+            } else {
+                System.out.println("Nenhum livro encontrado para o autor.");
+            }
+        } else {
+            System.out.println("Não há autores registrados com o nome " + nome + ".");
         }
     }
 
