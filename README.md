@@ -14,7 +14,7 @@ Ao iniciar, a aplicação irá apresentar no console um menu indicando os comand
 <p>8 - Top 10 livros mais baixados</p>
 <p>0 - Sair</p>
 
-<h2> Um pouco mais de detalhes no que cada um faz, em ordem crescente: </h2>
+<h4> Um pouco mais de detalhes no que cada um faz, em ordem crescente: </h4>
 
   0 - Irá finalizar a aplicação.
 
