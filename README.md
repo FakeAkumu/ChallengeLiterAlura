@@ -41,8 +41,7 @@ spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 ```
 
-2. Crie o banco de dados necessário
-   No exemplo anterior seria um banco de nome "literalura"
+2. Crie o banco de dados literalura no PostgreSQL
 
 3. Inicie a aplicação pelo LiteraluraApplication
 
