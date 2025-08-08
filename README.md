@@ -29,7 +29,6 @@ Aplicação que obtém informações de livros e autores através do Gutendex, s
 - Java 17
 - PostgreSQL
 - Maven
-- Cliente REST: Postman ou Insomnia
 
 ---
 
