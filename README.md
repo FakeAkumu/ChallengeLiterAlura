@@ -73,7 +73,9 @@ Para selecionar uma opção você deve digitar o número no console e pressionar
   Por exemplo:
 
   Digitar 1 fará com que a aplicação peça que eu insira o título a ser buscado, após inserido será devolvido o resultado da busca.
+  
   Após satisfeito com o resultado, digitar 0 encerrará a aplicação
+
 Importante notar que toda interação entre o usuário e a aplicação ocorre pelo console.
 
 Importante destacar as duas últimas opções, 9 e 10:
