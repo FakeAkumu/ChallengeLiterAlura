@@ -30,8 +30,6 @@ Aplicação que obtém informações de livros e autores através do Gutendex, s
 - PostgreSQL
 - Maven
 
----
-
 ### Preparação:
 
 1. Edite application.properties
@@ -47,8 +45,6 @@ spring.datasource.password=sua_senha
    No exemplo anterior seria um banco de nome "literalura"
 
 3. Inicie a aplicação pelo LiteraluraApplication
-
----
 
 ### Funções disponíveis:
 
