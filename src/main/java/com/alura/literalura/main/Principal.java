@@ -32,7 +32,7 @@ public class Principal {
         var opcao = -1;
         while (opcao != 0) {
             var menu = """
-                    -----------------------------------------------
+                    -------------------------------------------------------
                     Escolha o número de sua opção:
                     1 - Buscar livro pelo título
                     2 - Buscar autor pelo nome
@@ -42,6 +42,8 @@ public class Principal {
                     6 - Listar autores vivos em um determinado ano
                     7 - Listar livros em um determinado idioma
                     8 - Top 10 livros mais baixados
+                    9 - Registrar livro por título ou nome do autor
+                    10 - Registrar até 5 livros por título ou nome do autor
                     0 - Sair
                     """;
 
@@ -76,13 +78,12 @@ public class Principal {
                     case 8:
                         topDezMaisBaixados();
                         break;
-/// Casos referentes às funções utilizadas para registrar livros e autores ao banco de dados
-//                    case 9:
-//                        registrarLivro();
-//                        break;
-//                    case 10:
-//                        registrarAteCinco();
-//                        break;
+                    case 9:
+                        registrarLivro();
+                        break;
+                    case 10:
+                        registrarAteCinco();
+                        break;
                     case 0:
                         System.out.println("Saindo...");
                         break;
@@ -213,100 +214,100 @@ public class Principal {
 
         autores.forEach(Impressao::imprimirAutor);
     }
-/// Funções utilizadas para o registro de livros e autores ao banco de dados
-//    private void registrarLivro() {
-//        DadosLivro dados = getDadosLivro();
-//
-//        if (dados.autor().stream().noneMatch(a -> a.dataNascimento() != null)) {
-//            System.out.println("Livro ignorado: Autores inválidos");
-//            return;
-//        }
-//
-//        List<Livro> livrosPorTitulo = repositorioL.findAllByTitulo(dados.titulo());
-//
-//        boolean registrado = livrosPorTitulo.stream()
-//                .anyMatch(l -> l.getAutor().stream()
-//                        .anyMatch(a -> a.getNome().equalsIgnoreCase(dados.autor().get(0).nome())));
-//
-//        if (registrado) {
-//            System.out.println("Livro já registrado.");
-//            return;
-//        }
-//
-//        Set<Autor> autor = dados.autor().stream()
-//                .filter(a -> a.dataNascimento() != null)
-//                .map(d -> repositorioA.findByNome(d.nome())
-//                        .orElseGet(() -> {
-//                            Autor novoAutor = new Autor(d.nome(), d.dataNascimento(), d.dataFalecimento());
-//                            return repositorioA.save(novoAutor);
-//                        }))
-//                .collect(Collectors.toSet());
-//
-//        Livro livro = new Livro(dados);
-//
-//        livro.setAutor(autor);
-//
-//        Impressao.imprimirLivro(livro);
-//
-//        repositorioL.save(livro);
-//    }
-//
-//    private DadosLivro getDadosLivro() {
-//        System.out.println("Digite o nome para busca");
-//
-//        var nome = leitura.nextLine();
-//
-//        var json = consumo.obterDados(endereco + "search=" + nome.replace(" ", "+"));
-//
-//        RespostaApi resposta = conversor.obterDados(json, RespostaApi.class);
-//
-//        return resposta.resposta().get(0);
-//    }
-//
-//    private void registrarAteCinco() {
-//        List<DadosLivro> dadosPorAutor = getDadosAteCinco();
-//
-//        dadosPorAutor.stream()
-//                .limit(5)
-//                .forEach(dados -> {
-//                    if (dados.autor().stream().noneMatch(a -> a.dataNascimento() != null)) {
-//                        System.out.println("Livro ignorado: Autores inválidos");
-//                        return;
-//                    }
-//
-//                    boolean registrado = repositorioL.findAllByTitulo(dados.titulo()).stream()
-//                            .anyMatch(l -> l.getAutor().stream()
-//                                    .anyMatch(a -> a.getNome().equalsIgnoreCase(dados.autor().get(0).nome())));
-//                    if (registrado) {
-//                        System.out.println("Livro já registrado.");
-//                        return;
-//                    }
-//                    Set<Autor> autor = dados.autor().stream()
-//                            .map(d -> repositorioA.findByNome(d.nome())
-//                                    .orElseGet(() -> repositorioA.save(
-//                                            new Autor(d.nome(), d.dataNascimento(), d.dataFalecimento())
-//                                    )))
-//                            .collect(Collectors.toSet());
-//
-//                    Livro livro = new Livro(dados);
-//
-//                    livro.setAutor(autor);
-//
-//                    repositorioL.save(livro);
-//
-//                    Impressao.imprimirLivro(livro);
-//                });
-//    }
-//
-//    private List<DadosLivro> getDadosAteCinco() {
-//        System.out.println("Digite o nome para busca");
-//
-//        var nome = leitura.nextLine();
-//
-//        var json = consumo.obterDados(endereco + "search=" + nome.replace(" ", "+"));
-//
-//        RespostaApi resposta = conversor.obterDados(json, RespostaApi.class);
-//
-//        return resposta.resposta();
-//    }
+
+    private void registrarLivro() {
+        DadosLivro dados = getDadosLivro();
+
+        if (dados.autor().stream().noneMatch(a -> a.dataNascimento() != null)) {
+            System.out.println("Livro ignorado: Autores inválidos");
+            return;
+        }
+
+        List<Livro> livrosPorTitulo = repositorioL.findAllByTitulo(dados.titulo());
+
+        boolean registrado = livrosPorTitulo.stream()
+                .anyMatch(l -> l.getAutor().stream()
+                        .anyMatch(a -> a.getNome().equalsIgnoreCase(dados.autor().get(0).nome())));
+
+        if (registrado) {
+            System.out.println("Livro já registrado.");
+            return;
+        }
+
+        Set<Autor> autor = dados.autor().stream()
+                .filter(a -> a.dataNascimento() != null)
+                .map(d -> repositorioA.findByNome(d.nome())
+                        .orElseGet(() -> {
+                            Autor novoAutor = new Autor(d.nome(), d.dataNascimento(), d.dataFalecimento());
+                            return repositorioA.save(novoAutor);
+                        }))
+                .collect(Collectors.toSet());
+
+        Livro livro = new Livro(dados);
+
+        livro.setAutor(autor);
+
+        Impressao.imprimirLivro(livro);
+
+        repositorioL.save(livro);
+    }
+
+    private DadosLivro getDadosLivro() {
+        System.out.println("Digite o nome para busca");
+
+        var nome = leitura.nextLine();
+
+        var json = consumo.obterDados(endereco + "search=" + nome.replace(" ", "+"));
+
+        RespostaApi resposta = conversor.obterDados(json, RespostaApi.class);
+
+        return resposta.resposta().get(0);
+    }
+
+    private void registrarAteCinco() {
+        List<DadosLivro> dadosPorAutor = getDadosAteCinco();
+
+        dadosPorAutor.stream()
+                .limit(5)
+                .forEach(dados -> {
+                    if (dados.autor().stream().noneMatch(a -> a.dataNascimento() != null)) {
+                        System.out.println("Livro ignorado: Autores inválidos");
+                        return;
+                    }
+
+                    boolean registrado = repositorioL.findAllByTitulo(dados.titulo()).stream()
+                            .anyMatch(l -> l.getAutor().stream()
+                                    .anyMatch(a -> a.getNome().equalsIgnoreCase(dados.autor().get(0).nome())));
+                    if (registrado) {
+                        System.out.println("Livro já registrado.");
+                        return;
+                    }
+                    Set<Autor> autor = dados.autor().stream()
+                            .map(d -> repositorioA.findByNome(d.nome())
+                                    .orElseGet(() -> repositorioA.save(
+                                            new Autor(d.nome(), d.dataNascimento(), d.dataFalecimento())
+                                    )))
+                            .collect(Collectors.toSet());
+
+                    Livro livro = new Livro(dados);
+
+                    livro.setAutor(autor);
+
+                    repositorioL.save(livro);
+
+                    Impressao.imprimirLivro(livro);
+                });
+    }
+
+    private List<DadosLivro> getDadosAteCinco() {
+        System.out.println("Digite o nome para busca");
+
+        var nome = leitura.nextLine();
+
+        var json = consumo.obterDados(endereco + "search=" + nome.replace(" ", "+"));
+
+        RespostaApi resposta = conversor.obterDados(json, RespostaApi.class);
+
+        return resposta.resposta();
+    }
 }
