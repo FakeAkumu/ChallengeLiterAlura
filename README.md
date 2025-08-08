@@ -49,6 +49,8 @@ spring.datasource.password=sua_senha
 
 3. Inicie a aplicação pelo LiteraluraApplication
 
+---
+
 ### Funções disponíveis:
 
 No console será dado um menu, com o nome das funções e o número associado à elas:
