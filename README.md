@@ -1,48 +1,83 @@
-<h1 align="center"> LiterAlura </h1>
-<p align="center"> Projeto para curso Back-End da Alura. </p>
-<p align="center"> Usa do Gutendex para obter informações de livros e autores, salvá-los em um banco de dados e exibir informações salvas. </p>
-<p align="center"> É necessário um software como o IntelliJ IDEA para ser devidamente acessado e utilizado. </p>
+# LiterAlura - Challenge Back End Alura
+Aplicação que obtém informações de livros e autores através do Gutendex, salva-as em um banco de dados e as retorna através do console.
 
-# Funcionalidade
-Ao iniciar, a aplicação irá apresentar no console um menu indicando os comandos disponíveis:
-<p>1 - Buscar livro pelo título</p>
-<p>2 - Buscar autor pelo nome</p>
-<p>3 - Buscar livros por autor</p>
-<p>4 - Listar livros registrados</p>
-<p>5 - Listar autores registrados</p>
-<p>6 - Listar autores vivos em um determinado ano</p>
-<p>7 - Listar livros em um determinado idioma</p>
-<p>8 - Top 10 livros mais baixados</p>
-<p>0 - Sair</p>
+---
 
-<h4> Um pouco mais de detalhes no que cada um faz, em ordem crescente: </h4>
+## Tecnologias utilizadas
+- Java 17
+- Spring Boot 3.5.3
+- Spring Data JPA
+- Jackson Core
+- PostgreSQL
+- Maven
 
-  0 - Irá finalizar a aplicação.
+---
 
-  Os seguintes buscarão os dados indicados no banco de dados:
+## Funcionalidades
 
-  1 - Irá buscar e listar no console quaisquer livros que contenham, em seu título, a String dada pelo usuário.
+- Busca de livros no banco de dados por título, autor, autores vivos em determinado ano ou idioma
+- Busca de autores no banco de dados por nome
+- Listagem de todos os livros ou autores salvos no banco de dados
+- Listagem dos 10 livros mais baixados
 
-  2 - Irá buscar e listar no console quaisquer autores que contenham, em seu nome, a String dada pelo usuário.
+---
 
-  3 - Irá buscar e listar no console quaisquer livros que possuam um autor que contenha, em seu nome, a String dada pelo usuário.
+## Utilização
 
-  4 - Irá listar no console todos os livros até então salvos no banco de dados.
+### Pré-requisitos:
 
-  5 - Irá listar no console todos os autores até então salvos no banco de dados.
+- Java 17
+- PostgreSQL
+- Maven
+- Cliente REST: Postman ou Insomnia
 
-  6 - Irá listar no console todos os autores que possuam data de nascimento menor que ou igual e uma data de falecimento maior que o Integer dado pelo usuário.
+---
 
-  7 - Irá listar no console os idiomas disponíveis e, após entrada do usuário, fará o memso com todos os livros disponíveis no idioma escolhido.
+### Preparação:
 
-  8 - Irá filtrar os 10 livros no banco de dados com maior contagem de downloads e irá listá-los em ordem decrescente no console. 
+1. Edite application.properties
+(Ou tenha as variáveis de ambiente necessárias para o funcionamento da aplicação)
+  Por exemplo:
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/literalura
+spring.datasource.username=seu_usuario
+spring.datasource.password=sua_senha
+```
 
-Há também outros dois comandos não listados, utilizados para buscar informações no Gutendex e salvá-las no banco de dados. Eles foram comentados no código e portanto não podem ser utilizados por padrão. (Linhas 79-85 e 216-311 da classe Principal)
+2. Crie o banco de dados necessário
+   No exemplo anterior seria um banco de nome "literalura"
 
-9 - Busca no Gutendex o primeiro resultado correspondente à String fornecida e o salva no banco de dados, a String pode ser relacionada tanto ao título do livro quanto ao nome do autor.
+3. Inicie a aplicação pelo LiteraluraApplication
 
-10 - Busca no Gutendex os primeiros 5 resultados correspondente à String fornecida e os salva no banco de dados, a String pode ser relacionada tanto aos títulos dos livros quanto aos nomes dos autores.
+### Funções disponíveis:
 
-## Tecnologias Utilizadas
-- ```Java 17```
-- ```IntelliJ IDEA```
+No console será dado um menu, com o nome das funções e o número associado à elas:
+```
+1 - Buscar livro pelo título
+2 - Buscar autor pelo nome
+3 - Buscar livros por autor
+4 - Listar livros registrados
+5 - Listar autores registrados
+6 - Listar autores vivos em um determinado ano
+7 - Listar livros em um determinado idioma
+8 - Top 10 livros mais baixados
+9 - Registrar livro por título ou nome do autor
+10 - Registrar até 5 livros por título ou nome do autor
+0 - Sair
+```
+
+Para selecionar uma opção você deve digitar o número no console e pressionar enter, em seguida siga os passos que aparecerão no console.
+
+  Por exemplo:
+
+  Digitar 1 fará com que a aplicação peça que eu insira o título a ser buscado, após inserido será devolvido o resultado da busca.
+  Após satisfeito com o resultado, digitar 0 encerrará a aplicação
+Importante notar que toda interação entre o usuário e a aplicação ocorre pelo console.
+
+Importante destacar as duas últimas opções, 9 e 10:
+- Registrar livro por título ou nome do autor
+  - Faz a busca pelo título de um livro ou nome de um autor no Gutendex e salvará o primeiro resultado
+- Registrar até 5 livros por título ou nome do autor
+  - Segue a mesma lógica do anterior, porém salva os primeiros cinco resultados.
+
+---
