@@ -78,7 +78,7 @@ Para selecionar uma opção você deve digitar o número no console e pressionar
 
 **Importante notar que toda interação entre o usuário e a aplicação ocorre pelo console.**
 
-Importante destacar as duas últimas opções, 9 e 10:
+Sobre as duas últimas opções, 9 e 10:
 - Registrar livro por título ou nome do autor
   - Faz a busca pelo título de um livro ou nome de um autor no Gutendex e salvará o primeiro resultado
 - Registrar até 5 livros por título ou nome do autor
